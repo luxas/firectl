@@ -1,4 +1,0 @@
-deb http://archive.ubuntu.com/ubuntu/ UBUNTU_CODENAME main restricted universe
-deb http://archive.ubuntu.com/ubuntu/ UBUNTU_CODENAME-updates main restricted universe
-deb http://archive.ubuntu.com/ubuntu/ UBUNTU_CODENAME-backports main restricted universe
-deb http://security.ubuntu.com/ubuntu UBUNTU_CODENAME-security main restricted universe
