@@ -17,7 +17,7 @@ VERSION:=$(shell cat VERSION)
 all: firectl
 
 firectl: $(SRCFILES)
-	go build
+	CGO_ENABLED=0 go build -a -ldflags '-extldflags "-static"'
 
 build-docker:
 	docker run -it --rm -v $(shell pwd):/go/src/github.com/luxas/firectl -w /go/src/github.com/luxas/firectl golang:1.11 make
