@@ -1,7 +1,8 @@
-#!/bin/bash
+#!/bin/sh
 
-if [[ ! -d /install ]]; then
+if [ ! -d /install ]; then
     echo "Please volume mount /install to the host directory you want firecracker and firectl copied to"
+    exit 1
 fi
 
 cp /firectl /firecracker /install
