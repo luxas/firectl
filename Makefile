@@ -11,6 +11,8 @@
 # express or implied. See the License for the specific language governing
 # permissions and limitations under the License.
 SRCFILES := *.go
+REGISTRY?=luxas
+VERSION:=$(shell cat VERSION)
 
 all: firectl
 
@@ -19,6 +21,14 @@ firectl: $(SRCFILES)
 
 build-docker:
 	docker run -it --rm -v $(shell pwd):/go/src/github.com/luxas/firectl -w /go/src/github.com/luxas/firectl golang:1.11 make
+
+docker: firectl
+	docker build -t ${REGISTRY}/firectl:${VERSION} -f docker/Dockerfile .
+
+docker-push:
+	docker push ${REGISTRY}/firectl:${VERSION}
+	docker tag ${REGISTRY}/firectl:${VERSION} ${REGISTRY}/firectl
+	docker push ${REGISTRY}/firectl
 
 install:
 	cp firectl /usr/local/bin
