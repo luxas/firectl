@@ -155,6 +155,9 @@ func (vmm *VMM) createRuntimeDir() error {
 }
 
 func (vmm *VMM) copyFilesFromHost() error {
+	if len(vmm.copyFiles) == 0 {
+		return nil
+	}
 	mntdir := filepath.Join(RuntimeDir, vmm.name, "mnt")
 	if err := os.MkdirAll(mntdir, 0755); err != nil {
 		return err
