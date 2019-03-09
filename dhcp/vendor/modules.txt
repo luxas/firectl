@@ -1,0 +1,8 @@
+# github.com/krolaw/dhcp4 v0.0.0-20180925202202-7cead472c414
+github.com/krolaw/dhcp4
+github.com/krolaw/dhcp4/conn
+# golang.org/x/net v0.0.0-20190301231341-16b79f2e4e95
+golang.org/x/net/ipv4
+golang.org/x/net/bpf
+golang.org/x/net/internal/iana
+golang.org/x/net/internal/socket

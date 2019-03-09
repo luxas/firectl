@@ -70,6 +70,8 @@ type options struct {
 	SocketPath           string
 	Name                 string
 	CopyFiles            []string
+	Containerized        bool
+	DaemonMode           bool
 	cleanupFns           []func() error
 }
 
@@ -99,6 +101,9 @@ func (opts *options) AddFlags(fs *pflag.FlagSet) {
 	fs.StringVar(&opts.LogFifo, "vmm-log-fifo", "", "Specify a FIFO for firecracker logs, mutually exclusive with --vmm-log-file, by default the log file is used")
 	fs.StringVar(&opts.MetricsFifo, "metrics-fifo", "", fmt.Sprintf("Specify a fifo for firecracker metrics, by default a new fifo is created in %s/{name}/metrics.fifo", RuntimeDir))
 	fs.StringVar(&opts.LogLevel, "log-level", DefaultLogLevel, "Set the log level for both firectl and firecracker")
+	// Container options
+	fs.BoolVar(&opts.Containerized, "containerized", false, "Whether firectl is running in a container")
+	fs.BoolVarP(&opts.DaemonMode, "daemon", "d", false, "Whether firectl should run detached in a container")
 }
 
 // Default sets the default values for these options

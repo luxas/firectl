@@ -61,6 +61,19 @@ func main() {
 	if err := opts.Validate(); err != nil {
 		log.Fatalf("validating the options failed: %v", err.Error())
 	}
+
+	if opts.DaemonMode {
+		b := &DockerBackend{}
+		_, err := b.RunDetached(os.Args[1:])
+		if err != nil {
+			log.Fatal(err)
+		}
+		return nil
+	}
+	if opts.Containerized {
+
+	}
+
 	vmm, err := opts.ToVMM()
 	if err != nil {
 		log.Fatalf("conversion to runtime config failed: %v", err.Error())

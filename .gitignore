@@ -1,3 +1,7 @@
 firectl
 base-image/rootfs-*
 *.swp
+route/route
+dhcp/*.ext4
+dhcp/vmlinux
+dhcp/fc-dhcpd
