@@ -180,7 +180,7 @@ func (vmm *VMM) copyFilesFromHost() error {
 		} else if err != nil {
 			return err
 		}
-		if err := executeCommand("cp", src, dest); err != nil {
+		if err := executeCommand("cp", "-r", src, dest); err != nil {
 			return err
 		}
 	}
