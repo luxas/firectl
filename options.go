@@ -228,7 +228,7 @@ func (opts *options) ToVMM() (*VMM, error) {
 		// FifoLogWriter will be set based on opts.FifoLogFile later during runtime
 		SocketPath:        opts.SocketPath,
 		LogFifo:           opts.LogFifo,
-		LogLevel:          strings.Title(opts.LogLevel),
+		LogLevel:          strings.Title(strings.ToLower(opts.LogLevel)),
 		MetricsFifo:       opts.MetricsFifo,
 		KernelImagePath:   opts.KernelImage,
 		KernelArgs:        opts.KernelCmdLine,
