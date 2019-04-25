@@ -41,7 +41,7 @@ type VMM struct {
 // Run a vmm with a given set of options
 func (vmm *VMM) Run(ctx context.Context) error {
 	vmmlogger := log.New()
-	vmmlogger.SetLevel(log.GetLevel())
+	vmmlogger.SetLevel(strings.Title(log.GetLevel()))
 
 	if err := vmm.createRuntimeDir(); err != nil {
 		return err
